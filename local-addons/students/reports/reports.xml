@@ -1,0 +1,24 @@
+<!-- my_reports/reports/report_custom_template.xml -->
+<odoo>
+    <data>
+        <template id="report_custom_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h2><t t-esc="o.name"/></h2>
+                        <p><t t-esc="o.contact_number"/></p>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+            id="action_report_custom"
+            string="Custom Report"
+            model="my_reports.my_model"
+            report_type="qweb-pdf"
+            name="my_reports.report_custom_template"
+            file="my_reports.report_custom_template"
+        />
+    </data>
+</odoo>

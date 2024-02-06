@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record id="view_student_form" model="ir.ui.view">
+      <field name="name">school.student.form</field>
+      <field name="model">school.student</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="address"/>
+              <field name="contact_number"/>
+              <field name="message"/>
+              <field name="gender"/>
+              <field name="age"/>
+              <field name="class_name"/>
+              <field name="is_disable" groups="students.group_admin"/>
+            </group>
+            <notebook>
+              <page string="Descriptions">
+                <group>
+                  <field name="hobby"/>
+                </group>
+              </page>
+              <page string="School Details">
+                <group>
+                  <field name="school_name"/>
+                  <field name="school_address"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="view_student_tree" model="ir.ui.view">
+      <field name="name">school.student.tree</field>
+      <field name="model">school.student</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="contact_number"/>
+          <field name="gender"/>
+          <field name="is_disable" groups="students.group_admin"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_student" model="ir.actions.act_window">
+      <field name="name">Students</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">school.student</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data> 
+</odoo>
